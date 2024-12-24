@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class StudentService {
 
+    Scanner input = new Scanner(System.in);
     private final StudentRepository studentRepository = new StudentRepository();
 
     public StudentService() throws SQLException {
@@ -25,7 +26,6 @@ public class StudentService {
     }
 
     public void login() throws SQLException {
-        Scanner input = new Scanner(System.in);
         System.out.println("please enter your username:");
         String userName = input.nextLine();
         System.out.println("please enter your password:");
@@ -36,5 +36,15 @@ public class StudentService {
             System.out.println("login successfully");
         else
             System.out.println("Bad Credentials");
+    }
+
+    public void changeFirstName() throws SQLException {
+        System.out.println("please enter your new firstName:");
+        String firstName = input.nextLine();
+        int result = studentRepository.updateFirstName(firstName);
+        if(result!= 0)
+            System.out.println("successfully update to database");
+        else
+            System.out.println("Oops :(");
     }
 }
