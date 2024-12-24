@@ -4,6 +4,7 @@ import model.Student;
 import repository.StudentRepository;
 
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class StudentService {
 
@@ -21,5 +22,19 @@ public class StudentService {
         else
             System.out.println("Oops :(");
 
+    }
+
+    public void login() throws SQLException {
+        Scanner input = new Scanner(System.in);
+        System.out.println("please enter your username:");
+        String userName = input.nextLine();
+        System.out.println("please enter your password:");
+        String password = input.nextLine();
+
+        Student student = studentRepository.login(userName);
+        if ((student != null) && student.getPassword().equals(password))
+            System.out.println("login successfully");
+        else
+            System.out.println("Bad Credentials");
     }
 }
