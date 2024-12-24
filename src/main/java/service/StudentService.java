@@ -47,4 +47,12 @@ public class StudentService {
         else
             System.out.println("Oops :(");
     }
+
+    public void delete() throws SQLException {
+        int result = studentRepository.delete(2);
+        if(result!= 0)
+            System.out.println("successfully deleted from database");
+        else
+            System.out.println("Oops :(");
+    }
 }
