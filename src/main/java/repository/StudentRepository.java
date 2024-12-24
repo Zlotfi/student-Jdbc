@@ -56,4 +56,12 @@ public class StudentRepository {
         int result = preparedStatement.executeUpdate();
         return result;
     }
+
+    public int delete(int student_id) throws SQLException {
+        String query = "DELETE FROM student WHERE student_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1,student_id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
 }
