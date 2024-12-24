@@ -49,10 +49,11 @@ public class StudentRepository {
             return null;
     }
 
-    public int updateFirstName(String firstName) throws SQLException {
-        String query = "UPDATE student SET firstName = ? WHERE student_id = 2";
+    public int updateFirstName(String firstName, int student_id) throws SQLException {
+        String query = "UPDATE student SET firstName = ? WHERE student_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, firstName);
+        preparedStatement.setInt(2, student_id);
         int result = preparedStatement.executeUpdate();
         return result;
     }
