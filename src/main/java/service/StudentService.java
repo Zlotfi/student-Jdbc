@@ -14,9 +14,7 @@ public class StudentService {
     public StudentService() throws SQLException {
     }
 
-    public void register() throws SQLException {
-        Student student = new Student
-               (null, "zahra", "lotfi", "123456789","zlotfi80","1234");
+    public void register(Student student) throws SQLException {
         int result = studentRepository.save(student);
         if(result!= 0)
             System.out.println(student.getFirstName() + " successfully added to database");
@@ -25,31 +23,23 @@ public class StudentService {
 
     }
 
-    public void login() throws SQLException {
-        System.out.println("please enter your username:");
-        String userName = input.nextLine();
-        System.out.println("please enter your password:");
-        String password = input.nextLine();
-
+    public Student login(String userName, String password) throws SQLException {
         Student student = studentRepository.login(userName);
-        if ((student != null) && student.getPassword().equals(password))
-            System.out.println("login successfully");
-        else
-            System.out.println("Bad Credentials");
+        return student;
     }
 
-    public void changeFirstName() throws SQLException {
+    public void changeFirstName(int student_id) throws SQLException {
         System.out.println("please enter your new firstName:");
         String firstName = input.nextLine();
-        int result = studentRepository.updateFirstName(firstName);
+        int result = studentRepository.updateFirstName(firstName, student_id);
         if(result!= 0)
             System.out.println("successfully update to database");
         else
             System.out.println("Oops :(");
     }
 
-    public void delete() throws SQLException {
-        int result = studentRepository.delete(2);
+    public void delete(int student_id) throws SQLException {
+        int result = studentRepository.delete(student_id);
         if(result!= 0)
             System.out.println("successfully deleted from database");
         else
