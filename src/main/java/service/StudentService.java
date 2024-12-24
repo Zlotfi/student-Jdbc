@@ -19,7 +19,7 @@ public class StudentService {
         if(result!= 0)
             System.out.println(student.getFirstName() + " successfully added to database");
         else
-            System.out.println("Oops :(");
+            System.out.println("Unknown error");
 
     }
 
@@ -35,7 +35,7 @@ public class StudentService {
         if(result!= 0)
             System.out.println("successfully update to database");
         else
-            System.out.println("Oops :(");
+            System.out.println("Unknown error");
     }
 
     public void delete(int student_id) throws SQLException {
@@ -43,6 +43,6 @@ public class StudentService {
         if(result!= 0)
             System.out.println("successfully deleted from database");
         else
-            System.out.println("Oops :(");
+            System.out.println("Unknown error");
     }
 }
