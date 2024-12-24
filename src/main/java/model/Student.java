@@ -1,15 +1,15 @@
 package model;
 
 public class Student {
-    private Integer id;
+    private Integer student_id;
     private String firstName;
     private String lastName;
     private String studentNumber;
     private String userName;
     private String password;
 
-    public Student(Integer id, String firstName, String lastName, String studentNumber, String userName, String password) {
-        this.id = id;
+    public Student(Integer student_id, String firstName, String lastName, String studentNumber, String userName, String password) {
+        this.student_id= student_id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.studentNumber = studentNumber;
@@ -17,12 +17,12 @@ public class Student {
         this.password = password;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getStudent_id() {
+        return student_id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setStudent_id(Integer student_id) {
+        this.student_id = student_id;
     }
 
     public String getFirstName() {
