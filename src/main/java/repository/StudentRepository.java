@@ -5,6 +5,7 @@ import model.Student;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class StudentRepository {
@@ -25,5 +26,26 @@ public class StudentRepository {
         preparedStatement.setString(5, student.getPassword());
         int result = preparedStatement.executeUpdate();
         return result;
+    }
+
+    public Student login(String userName) throws SQLException {
+        String loginQuery ="SELECT * FROM student WHERE userName = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(loginQuery);
+        preparedStatement.setString(1,userName);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()){
+            Student student = new Student(
+                    resultSet.getInt("student_id"),
+                    resultSet.getString("firstName"),
+                    resultSet.getString("lastName"),
+                    resultSet.getString("studentNumber"),
+                    resultSet.getString("userName"),
+                    resultSet.getString("password")
+
+            );
+            return student;
+        }
+        else
+            return null;
     }
 }
