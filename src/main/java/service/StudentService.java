@@ -9,9 +9,10 @@ import java.util.Scanner;
 public class StudentService {
 
     Scanner input = new Scanner(System.in);
-    private final StudentRepository studentRepository = new StudentRepository();
+    private final StudentRepository studentRepository;
 
-    public StudentService() throws SQLException {
+    public StudentService(StudentRepository studentRepository){
+        this.studentRepository = studentRepository;
     }
 
     public void register(Student student) throws SQLException {
