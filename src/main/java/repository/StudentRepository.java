@@ -10,10 +10,10 @@ import java.sql.SQLException;
 
 public class StudentRepository {
 
-    JdbcConnection jdbcConnection = new JdbcConnection();
-    Connection connection = jdbcConnection.getConnection();
+    private final Connection connection;
 
-    public StudentRepository() throws SQLException {
+    public StudentRepository(Connection connection){
+        this.connection = connection;
     }
 
     public int save(Student student) throws SQLException {
