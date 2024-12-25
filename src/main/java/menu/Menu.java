@@ -2,6 +2,7 @@ package menu;
 
 import model.Student;
 import service.StudentService;
+import utility.ApplicationContext;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 public class Menu {
 
     private final Scanner input = new Scanner(System.in);
-    private final StudentService studentService = new StudentService();
+    private final StudentService studentService = ApplicationContext.getStudentService();
 
     public Menu() throws SQLException {
     }
