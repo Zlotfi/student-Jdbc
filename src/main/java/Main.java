@@ -16,7 +16,7 @@ public class Main {
 //        CourseRepository courseRepository = new CourseRepository();
 //        Courses courses = new Courses(null,"riazi",1);
 //        courseRepository.save(courses);
-        StudentService studentService = new StudentService();
+//        StudentService studentService = new StudentService();
 //        studentService.register();
 //        studentService.login();
 //        studentService.changeFirstName();
